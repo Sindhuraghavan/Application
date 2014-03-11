@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+	Spicy Restaurtant Welcomes You!!!!!
+	<br>
+	 <sub>-You've come to the right place</sub>
+</div>
+
+<br>
+<center><%= image_tag("food.jpeg", :alt=> "Food") %></center>
+<br>
+
+<div id="link">
+Links For Navigation
+</div>
+
+<%= yield %>
+
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="footer">
+	<sub>spicy restaurtant.org</sub>
+</div>
+</html>

@@ -1,0 +1,84 @@
+
+<%= form_for :post, url: posts_path do |f| %>
+  <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> Error Occured:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+
+<center>
+
+<br>
+<table cellpadding="12" cellspacing="0" >
+<tr>
+    <td><%= f.label :Item %></td>
+    <td><%= f.text_field :Item %></td>
+</tr>
+
+<tr>
+
+  <!-- <td><%= f.label :Timing %></td>
+ <td><%= f.check_box :Timing %>
+ <%= f.label :Timing, "Morning" %>
+ </td>
+</tr>  -->
+
+
+<tr>
+    <td><%= f.label :Timing %></td>
+    <td><%= f.select :Timing, options_for_select(%w[Morning Afternoon Evening Night Morning+Afternoon Morning+Evening Morning+Night Afternoon+Evening Afternoon+Night Evening+Nights Alltime]) %></td>
+</tr>
+
+ <tr>
+   <td><%= f.label :Type %></td>
+   <td><%= f.radio_button :Type, "Vegetarian" %>
+   <%= f.label :Type, "Vegetarian" %>
+   <%= f.radio_button :Type, "Non-Vegetarian" %>
+   <%= f.label :Type, "Non-Vegetarian" %></td>
+</tr>
+
+
+
+<tr>
+  <td><%= f.label :Category %></td>
+  <td><%= f.radio_button :Category, "Staters" %>
+  <%= f.label :Category, "Staters" %>
+  <%= f.radio_button :Category, "Deserts" %>
+  <%= f.label :Category, "Deserts" %>
+  <%= f.radio_button :Category, "Main Course" %>
+  <%= f.label :Category, "Main Course" %>
+  <%= f.radio_button :Category, "Juice" %>
+  <%= f.label :Category, "Juice" %></td>
+</tr>
+
+
+<tr>
+    <td><%= f.label :Price %></td>
+    <td><%= f.text_field :Price %></td>
+</tr>
+
+<tr>
+    <td><%= f.label :Description, " Currenty Available" %></td>
+     <td><%= f.check_box :Description %> 
+    <%= f.label :Description, "Yes" %>
+</tr>
+
+</table>
+</center>
+<br>
+<br>
+
+  <center>
+   <%= f.submit %><br><br>
+   <%= link_to 'View all Items', controller: "posts" %><br><br>
+  <%= link_to 'Back to home ', welcome_index_path %>
+  </center>
+  <br>
+  <br>
+<% end %> 
