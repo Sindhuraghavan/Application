@@ -1,14 +1,21 @@
 Application::Application.routes.draw do
+  devise_for :users
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  resources :posts
+
+  resources :posts do
    get    '/posts/:id(.:format)' =>  'posts#show'
    get    '/posts(.:format)' => 'posts#index'
    delete '/posts/:id(.:format)'  =>  'posts#destroy'
+ 
+    member do
+      get 'success'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

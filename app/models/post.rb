@@ -4,5 +4,8 @@ class Post < ActiveRecord::Base
   (validates :Category, presence: true)
   (validates :Price, presence: true,numericality: true)
   (validates :Description, presence: true)
+
+  
+  has_attached_file :photo
   end
   

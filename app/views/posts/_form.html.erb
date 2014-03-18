@@ -1,17 +1,20 @@
 
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for :post, :html => { :multipart => true }, url: posts_path do |f| %>
+<center>
   <% if @post.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> Error Occured:</h2>
+    <h2><font color="red"> <%= pluralize(@post.errors.count, "error") %> Error Occured:</font></h2>
     <ul>
     <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li><font color="red"><%= msg %></font></li>
     <% end %>
     </ul>
   </div>
   <% end %>
+</center>
 
-
+<fieldset>
+    <legend align="centert">Add Item:</legend>
 <center>
 
 <br>
@@ -71,14 +74,17 @@
 
 </table>
 </center>
-<br>
-<br>
 
+<br>
+<br>
+<%= f.label :photo, "Photo" %>
+      <%= f.file_field :photo %>
   <center>
    <%= f.submit %><br><br>
    <%= link_to 'View all Items', controller: "posts" %><br><br>
   <%= link_to 'Back to home ', welcome_index_path %>
   </center>
+  </fieldset>
   <br>
   <br>
 <% end %> 

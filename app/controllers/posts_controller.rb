@@ -1,15 +1,17 @@
 class PostsController < ApplicationController
+
 layout "post"
-	def new
+
+def new
 		 @post = Post.new 
 end
 
 def create
-  @post = Post.new(params[:post].permit(:Item, :Type, :Category, :Price, :Description, :Timing))
+   
+  @post = Post.new(params[:post].permit(:Item, :Type, :Category, :Price, :Description, :Timing, :photo))
 
- 
-  if @post.save
-    redirect_to @post
+if @post.save
+  redirect_to @post
   else
     render 'new'
   end
@@ -21,7 +23,9 @@ end
 
 def index
   @posts = Post.all
+  @posts = Post.order("Item").page(params[:page]).per(5)
 end
+
 def edit
   @post = Post.find(params[:id])
 end
@@ -29,12 +33,13 @@ end
 def update
   @post = Post.find(params[:id])
  
-  if @post.update(params[:post].permit(:Item, :Type, :Category, :Price, :Description, :Timing))
-    redirect_to @post
+  if @post.update(params[:post].permit(:Item, :Type, :Category, :Price, :Description, :Timing, :photo))
+    render 'success'
   else
     render 'edit'
   end
 end
+
 
 def destroy
   @post = Post.find(params[:id])
