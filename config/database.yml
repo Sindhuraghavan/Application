@@ -40,7 +40,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: app__test
+  database: app_test
   pool: 5
   username: root
   password: root
@@ -53,7 +53,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: app__prod
+  database: app_prod
   pool: 5
   username: root
   password: root
