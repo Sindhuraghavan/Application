@@ -44,7 +44,7 @@ test:
   pool: 5
   username: root
   password: root
-  socket: /var/lib/mysql/mysql.sock
+  #socket: /var/lib/mysql/mysql.sock
   #host: 192.168.80.1
 
 # socket: /tmp/mysql.sock
