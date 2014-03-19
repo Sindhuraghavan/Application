@@ -42,6 +42,15 @@
 
 
   <% end %>
+
+
+<p>
+  Download:
+  <%= link_to "CSV", posts_path(format: "csv") %> |
+  <%= link_to "Excel", posts_path(format: "xls") %>
+</p>
+
+
   </table>
 
 
